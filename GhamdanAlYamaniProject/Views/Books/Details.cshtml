@@ -1,0 +1,34 @@
+﻿@model Books
+
+<label class="control-label" >The Book Name is  : @Model.B_Name</label>
+<br/>
+<label class="control-label">The Catagory Name of Book is : @Model.Catagorys.Cat_Name</label>
+<br/>
+<br/>
+<hr>
+<table class="table" >
+
+    <thead>
+				<titel>  Welcome to Details Data Book Page --><hr></titel>
+		<tr>
+			<th>Date Stor</th>
+			<th>Numbers of Books </th>
+			<th>Prosess</th>
+			
+		</tr>
+	</thead>
+	<tbody>
+			@foreach(var bs in Model.BookStors){
+				<tr>
+					<td>@bs.BS_Date</td>
+					<td>@Math.Abs(bs.BS_Num)</td>
+					<td>@(bs.BS_Type==1?"Out":"IN")</td>
+				</tr>
+			}
+    </tbody>
+</table>
+<br>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Book Data</a>

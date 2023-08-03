@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Orders>
+<label  class="control-label">To Add New Order --></label>
+<a asp-action="Create"  class="btn btn-primary" >Add New</a>
+<br>
+<table class="table">
+	<thead>
+				<titel>  Welcome to View Data Orders Page --><hr></titel>
+
+		<tr>
+			<th>ID</th>
+			<th>Customer</th>
+			<th>Book</th>
+			<th>Data Order</th>
+			<th>Amount</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+		<tbody>
+	@foreach(var c in Model)
+	{
+		<tr>
+			<td>@c.O_Id</td>
+			<td>@c.Customers.C_Name</td>
+			<td>@c.Book.B_Name</td>
+			<td>@c.O_Data</td>
+			<td>@c.O_Amount</td>
+			<td>
+				<a asp-action="Edit" asp-route-id="@c.O_Id">Edit</a>
+				<a asp-action="Delete" asp-route-id="@c.O_Id">Delete</a>
+			
+
+			</td>
+		</tr>
+	}		
+	</tbody>
+</table>

@@ -1,0 +1,25 @@
+﻿@model Customer
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input hidden asp-for="C_Id" />
+     <label  class="control-label">Welcome to Edite Customer Page <br>Enter The New Data Customer You Want to Edite --><hr></label>
+
+	 <div class="form-group">
+                <label asp-for="C_Name" class="control-label">Enter The New Customer Name :</label>
+                <input asp-for="C_Name" class="form-control"  required/>
+                <label asp-for="C_Email" class="control-label">Enter The New Customer Email :</label>
+                <input asp-for="C_Email" class="form-control" required />
+                <label asp-for="C_Phone" class="control-label">Enter The New Customer Phone :</label>
+                <input asp-for="C_Phone" class="form-control" type="tel" />
+                <label asp-for="C_Address" class="control-label">Enter The New Customer Address :</label>
+                <input asp-for="C_Address" class="form-control"  />
+                <span asp-validation-for="C_Name" class="text-danger"></span>
+       </div>
+       <br>
+       <input type="submit" class="btn btn-primary" value="Save" />
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Customer Data</a>

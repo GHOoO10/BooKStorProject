@@ -1,0 +1,24 @@
+﻿@model Customer
+
+<form asp-action="Delete" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input hidden asp-for="C_Id" />
+     <label  class="control-label">Welcome-> Are You Sure !!! <br>  To Delete This Data Customer --><hr></label>
+	 <div class="form-group">
+                <label asp-for="C_Name" class="control-label">The Customer Name :</label>
+                <input asp-for="C_Name" class="form-control" readonly />
+                <label asp-for="C_Email" class="control-label">The Customer Email :</label>
+                <input asp-for="C_Email" class="form-control" readonly />
+                <label asp-for="C_Phone" class="control-label">The Customer Phone :</label>
+                <input asp-for="C_Phone" class="form-control" readonly />
+                <label asp-for="C_Address" class="control-label">The Customer Address :</label>
+                <input asp-for="C_Address" class="form-control" readonly />
+                <span asp-validation-for="C_Name" class="text-danger"></span>
+       </div>
+       <br>
+       <input type="submit" class="btn btn-danger" value="Delete"  />
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Customer Data</a>

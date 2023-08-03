@@ -1,0 +1,21 @@
+﻿@model Admin
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <label  class="control-label">Welcome to Add Admin Page <br>Enter The Data Admin --><hr></label>
+	 <div class="form-group">
+                <label asp-for="A_Name" class="control-label">Enter The Name:</label>
+                <input asp-for="A_Name" class="form-control" type="text" required />
+                <label asp-for="A_Email" class="control-label">Enter The Email:</label>
+                <input asp-for="A_Email" class="form-control" type="email" required />
+                <label asp-for="A_Password" class="control-label">Enter The Password:</label>
+                <input asp-for="A_Password" class="form-control" type="password" />
+                <span asp-validation-for="A_Name" class="text-danger"></span>
+       </div>
+       <br>
+       <input type="submit" class="btn btn-primary" value="Save" />
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Admin Data</a>

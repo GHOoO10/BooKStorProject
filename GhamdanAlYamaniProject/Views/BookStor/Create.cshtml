@@ -1,0 +1,51 @@
+﻿@model BookStor
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+                <label  class="control-label">Select The Catagory --></label>
+                <select  id="catagory"  asp-items="@(new SelectList(ViewBag.catagory,"Cat_Id","Cat_Name"))" class="form-control" required  >
+                     <option value=0>Select Catagory</option>
+                </select>
+       </div>    
+       <div class="form-group">
+                <label  class="control-label">Show the Books of This Catagory --></label>
+            <select asp-for="B_Id" id="books"  class="form-control" required  ></select>
+        </div>
+       	 <div class="form-group">
+                <label asp-for="BS_Num" class="control-label">The Numbers of Books :</label>
+                <input asp-for="BS_Num" class="form-control" type="number" min="1" />
+                <span asp-validation-for="BS_Num" class="text-danger"></span>
+       </div>
+         <div class="form-group">
+                <label  class="control-label">Select (IN) is in stor and (Out) is out stor ---></label>
+            <select asp-for="BS_Type" id="books"  class="form-control" required  >
+                <option value="0" >-- IN --</option>
+                <option value="1" >-- Out --</option>
+            </select>
+        </div>
+        <br>
+       <input type="submit" class="btn btn-primary" value="Save" />
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To Filter BooksByCatagroy page</a>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function(){
+            $("#catagory").change(function(){
+                $.getJSON("LoadBookByCat",{id:$(this).val()},function(data){ 
+                    var items="";
+                    $.each(data,function(i,p){
+                    items+="<option value="+p.value+">"+p.text+"</option>";
+                    });
+                    $("#books").html(items);
+                });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,19 @@
+﻿@model Catagory
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input hidden asp-for="Cat_Id" />
+     <label  class="control-label">Welcome to Edite Catagory Page <br>Enter The New Data Catagory You Want to Edite --><hr></label>
+	 <div class="form-group">
+                <label asp-for="Cat_Name" class="control-label">Enter The New Catagory Name :</label>
+                <input asp-for="Cat_Name" class="form-control" required />
+                <span asp-validation-for="Cat_Name" class="text-danger"></span>
+       </div> 
+       <br>
+          <input type="submit" class="btn btn-primary" value="Save"  />
+
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Catagory Data</a>

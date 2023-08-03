@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Catagory>
+<label  class="control-label">To Add New Catagory --></label>
+<a asp-action="Create"  class="btn btn-primary" >Add New</a>
+<br>
+<table class="table">
+	<thead>
+			<titel>  Welcome to View Data Catagorys Page --><hr></titel>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+		<tbody>
+	@foreach(var c in Model)
+	{
+		<tr>
+			<td>@c.Cat_Id</td>
+			<td>@c.Cat_Name</td>
+			<td>
+				<a asp-action="Edit" asp-route-id="@c.Cat_Id">Edit</a>
+				<a asp-action="Delete" asp-route-id="@c.Cat_Id">Delete</a>
+			</td>
+		</tr>
+	}		
+	</tbody>
+</table>

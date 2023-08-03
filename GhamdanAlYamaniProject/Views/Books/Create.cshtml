@@ -1,0 +1,46 @@
+﻿@model Books
+@*@{
+    Layout = null;
+}*@
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <label  class="control-label">Welcome to Add Book Page <br>Enter The Data Book --><hr></label>
+	 <div class="form-group">
+                <label asp-for="B_Name" class="control-label">The Book Name:</label>
+                <input asp-for="B_Name" class="form-control"  />
+                <span asp-validation-for="B_Name" class="text-danger"></span>
+       </div>
+       <div class="form-group">
+                <label asp-for="B_Author" class="control-label">Enter The Book Author:</label>
+                <input asp-for="B_Author" class="form-control"  />
+                <span asp-validation-for="B_Author" class="text-danger"></span>
+       </div>
+       <div class="form-group">
+                <label asp-for="B_Description" class="control-label">Enter The Book Description:</label>
+                <input asp-for="B_Description" class="form-control"  />
+                <span asp-validation-for="B_Description" class="text-danger"></span>
+       </div>
+       <div class="form-group">
+                <label asp-for="B_Price" class="control-label">Enter The Book Price:</label>
+                <input asp-for="B_Price" class="form-control" type="number" min="0" />
+                <span asp-validation-for="B_Price" class="text-danger"></span>
+       </div>
+        <div class="form-group">
+                <label asp-for="Cat_Id" class="control-label">Select Catagory:</label>
+                <select asp-for="Cat_Id" asp-items="@(new SelectList(ViewBag.catagory,"Cat_Id","Cat_Name"))" class="form-control" required  ></select>
+                @*cat= the same cat in CatagoryController*@
+                <span asp-validation-for="Cat_Id" class="text-danger"></span>
+       </div>
+       <div class="form-group">
+                <label asp-for="A_Id" class="control-label">Select Admin:</label>
+                <select asp-for="A_Id" asp-items="@(new SelectList(ViewBag.admin,"A_Id","A_Name"))" class="form-control" required  ></select>
+                @*admin= the same cat in AdminController*@
+                <span asp-validation-for="A_Id" class="text-danger"></span>
+       </div>
+       <br>
+       <input type="submit" class="btn btn-primary" value="Save"  />
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Book Data</a>

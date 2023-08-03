@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Books>
+<label  class="control-label">To Add New Book --></label>
+<a asp-action="Create"  class="btn btn-primary" >Add New</a>
+<br>
+<table class="table">
+	<thead>
+		<titel>  Welcome to View Data Books Page --><hr></titel>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Author</th>
+			<th>Category</th>
+			<th>Admin</th>
+			<th>Description</th>
+			<th>Price</th>
+			<th>QtyInBookST</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+		<tbody>
+	@foreach(var c in Model)
+	{
+		<tr>
+			<td>@c.B_Id</td>
+			<td>@c.B_Name</td>
+			<td>@c.B_Author</td>
+			<td>@c.Catagorys.Cat_Name</td>
+			<td>@c.Admins.A_Name</td>
+			<td>@c.B_Description</td>
+			<td>@c.B_Price</td>
+			<td>@c.BookStors.Sum(bs=>bs.BS_Num)</td>
+			<td>
+				<a asp-action="Edit" asp-route-id="@c.B_Id">Edit</a>
+				<a asp-action="Delete" asp-route-id="@c.B_Id">Delete</a>
+				<a asp-action="Details" asp-route-id="@c.B_Id">Details</a>
+
+			</td>
+		</tr>
+	}		
+	</tbody>
+</table>

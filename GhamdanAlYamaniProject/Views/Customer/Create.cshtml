@@ -1,0 +1,23 @@
+﻿@model Customer
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <label  class="control-label">Welcome to Add Customer Page <br>Enter The Data Customer --><hr></label>
+	 <div class="form-group">
+                <label asp-for="C_Name" class="control-label">Enter The Customer Name :</label>
+                <input asp-for="C_Name" class="form-control" required />
+                <label asp-for="C_Email" class="control-label">Enter The Customer Email :</label>
+                <input asp-for="C_Email" class="form-control" type="email" required />
+                <label asp-for="C_Phone" class="control-label">Enter The Customer Phone :</label>
+                <input asp-for="C_Phone" class="form-control" type="tel"  />
+                <label asp-for="C_Address" class="control-label">Enter The Customer Address :</label>
+                <input asp-for="C_Address" class="form-control"  />
+                <span asp-validation-for="C_Name" class="text-danger"></span>
+       </div>
+       <br>
+       <input type="submit" class="btn btn-primary" value="Save"/>
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Customer Data</a>

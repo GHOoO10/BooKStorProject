@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Customer>
+<label  class="control-label">To Add New Customer --></label>
+<a asp-action="Create"  class="btn btn-primary" >Add New</a>
+<br>
+<table class="table">
+		<titel>  Welcome to View Data Customers Page --><hr></titel>
+
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Address</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+		<tbody>
+	@foreach(var e in Model)
+	{
+		<tr>
+			<td>@e.C_Id</td>
+			<td>@e.C_Name</td>
+			<td>@e.C_Email</td>
+			<td>@e.C_Phone</td>
+			<td>@e.C_Address</td>
+			<td>
+				<a asp-action="Edit" asp-route-id="@e.C_Id">Edit</a>
+				<a asp-action="Delete" asp-route-id="@e.C_Id">Delete</a>
+
+			</td>
+		</tr>
+	}		
+	</tbody>
+</table>

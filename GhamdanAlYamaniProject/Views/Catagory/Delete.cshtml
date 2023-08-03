@@ -1,0 +1,20 @@
+﻿@model Catagory
+
+<form asp-action="Delete" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input hidden asp-for="Cat_Id" />
+      <label  class="control-label">Welcome-> Are You Sure !!! <br>  To Delete This Data Catagory --><hr></label>
+	 <div class="form-group">
+                <label asp-for="Cat_Name" class="control-label">Cat_Name:</label>
+                <input asp-for="Cat_Name" class="form-control" required readonly />
+                <span asp-validation-for="Cat_Name" class="text-danger"></span>
+       </div> 
+       <br>
+                     <input type="submit" class="btn btn-danger" value="Delete"  />
+
+
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Catagory Data</a>

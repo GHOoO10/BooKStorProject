@@ -1,0 +1,22 @@
+﻿@model Admin
+
+<form asp-action="Delete" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input hidden asp-for="A_Id" />
+     <label  class="control-label">Welcome-> Are You Sure !!! <br>  To Delete This Data Admin --><hr></label>
+	 <div class="form-group">
+                <label asp-for="A_Name" class="control-label">The Name:</label>
+                <input asp-for="A_Name" class="form-control" readonly />
+                <label asp-for="A_Email" class="control-label">The Email:</label>
+                <input asp-for="A_Email" class="form-control" readonly />
+                <label asp-for="A_Password" class="control-label">The Password:</label>
+                <input asp-for="A_Password" class="form-control" readonly />
+                <span asp-validation-for="A_Name" class="text-danger"></span>
+       </div>
+       <br>
+       <input type="submit" class="btn btn-danger" value="Delete"  />
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Admin Data</a>

@@ -1,0 +1,33 @@
+﻿@model Orders
+
+<form asp-action="Edit" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input hidden asp-for="O_Id" />
+     <label  class="control-label">Welcome to Edite Order Page <br>Enter The New Data Order You Want to Edite --><hr></label>
+
+	 <div class="form-group">
+                <label asp-for="O_Data" class="control-label">Enter The New Order Data :</label>
+                <input asp-for="O_Data" class="form-control"  />
+                <label asp-for="O_Amount" class="control-label">Enter The New Order Amount :</label>
+                <input asp-for="O_Amount" class="form-control"  />
+                <span asp-validation-for="O_Data" class="text-danger"></span>
+       </div>
+       <div class="form-group">
+                <label asp-for="B_Id" class="control-label"></label>
+                <select asp-for="B_Id" asp-items="@(new SelectList(ViewBag.book,"B_Id","B_Name"))" class="form-control" required  ></select>
+                @*book= the same book in BookController*@
+                <span asp-validation-for="B_Id" class="text-danger"></span>
+       </div>
+       <div class="form-group">
+                <label asp-for="C_Id" class="control-label"></label>
+                <select asp-for="C_Id" asp-items="@(new SelectList(ViewBag.customer,"C_Id","C_Name"))" class="form-control" required  ></select>
+                @*customer= the same customer in CustomerController*@
+                <span asp-validation-for="C_Id" class="text-danger"></span>
+       </div>
+       <br>
+       <input type="submit" class="btn btn-primary" value="Save" />
+</form>
+<br>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary" >Go To Home Page</a>
+<br>
+<a asp-action="index" class="btn btn-secondary" >Go To All Order Data</a>
